@@ -38,7 +38,7 @@ def check_github_pro_status(username, token=None):
         
         # Add authentication if token is provided
         if token:
-            req.add_header('Authorization', f'token {token}')
+            req.add_header('Authorization', f'Bearer {token}')
         
         with urlopen(req) as response:
             data = json.loads(response.read().decode())
@@ -48,7 +48,7 @@ def check_github_pro_status(username, token=None):
             'username': data.get('login'),
             'name': data.get('name'),
             'account_type': data.get('type'),
-            'plan': data.get('plan', {}).get('name', 'Not visible') if data.get('plan') else 'Not visible',
+            'plan': data.get('plan', {}).get('name', 'Not visible'),
             'public_repos': data.get('public_repos'),
             'followers': data.get('followers'),
             'created_at': data.get('created_at'),
@@ -85,7 +85,7 @@ def print_manual_instructions():
     print("   - Advanced code review tools")
     print("   - 3,000 GitHub Actions minutes/month")
     print("   - 2GB of GitHub Packages storage")
-    print("   - GitHub Copilot (with separate subscription)")
+    print("   - GitHub Copilot (included with Pro)")
     print("   - Protected branches on private repos")
     print("   - Multiple assignees and reviewers")
     print("   - Wiki pages for private repos")
