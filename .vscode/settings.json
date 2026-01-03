@@ -1,0 +1,5 @@
+{
+    "debug.console": "integratedTerminal",
+    "debug.internalConsoleOptions": "neverOpen",
+    "debug.openDebug": "neverOpen"
+}
